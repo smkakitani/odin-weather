@@ -1,3 +1,26 @@
+/* CSS reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* common stuff */
+:root {
+  --color-yellow: rgb(255, 208, 80);
+}
+
+
+/* etc... */
 body {
   background-color: rgb(92, 92, 92);
+  background-image: url('../images/master-meow.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  font-size: 1rem;
+  height: 700px;
 }
