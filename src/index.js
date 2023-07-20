@@ -10,22 +10,13 @@ console.log('hello world!');
 
 
 // showing api's data!!
-const show = async(city) => {
-  const weather = await getWeatherData(city);
-  const myCity = CityData(weather.location.name);
-  myCity.country = weather.location.country;
-  myCity.current.tempC = weather.current.temp_c;
+const show = async(userCity) => {
+  const localName = await getWeatherData(userCity);
+
 
   // const mylocal = `my local is ${local} and it's ${weather} feels ${feels}`;
 
-  console.log(myCity);
-  // return message;
-
-  // const forecast = await getForecast("maringa");
-  
+  console.log(localName);
 }
 
-show("maringa");
-
-// const maringa = CityData("maringa");
-// console.log(maringa);
+show("sao paulo");

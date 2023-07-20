@@ -5,30 +5,34 @@ async function getWeatherData(cityName) {
     const myCity = await response.json();
 
     console.log(myCity);
-    return myCity;
+    const dataStored = CityData(myCity);
+    return dataStored;
   } catch (err) {
     console.log(err + " oops!");
   }
 }
 
-const CityData = (currentCity) => {
-  const current = {
-    tempC: '',
-    tempF: '',
-    feelsLikeC: '',      
-    feelsLikeF: '',
+
+// to store only the required data for the project
+const CityData = (weatherData) => {
+  const current = weatherData.current;
+  const today = weatherData.forecast.forecastday[0];
+  const nextDay = weatherData.forecast.forecastday[1];
+  const afterNextDay = weatherData.forecast.forecastday[2];
+
+  const forecast = {
+    today,
+    nextDay,
+    afterNextDay,     
   };
 
   return {
-    name: currentCity,
-    country: '',
+    name: weatherData.location.name,
+    country: weatherData.location.country,
     current,
+    forecast,
   }
-};
+}
 
 
-
-
-
-
-export { getWeatherData, CityData };
+export { getWeatherData/* , CityData */ };
